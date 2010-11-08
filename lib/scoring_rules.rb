@@ -1,12 +1,12 @@
-require "scoring_ruleset/metaid"
-require "scoring_ruleset/ruleset"
-require "scoring_ruleset/rule"
-require "scoring_ruleset/condition"
+require "scoring_rules/metaid"
+require "scoring_rules/ruleset"
+require "scoring_rules/rule"
+require "scoring_rules/condition"
 
-module ScoringRuleset
+module ScoringRules
   module ClassMethods
-    def scoring_ruleset
-      raise(ArgumentError, "Ruleset needs a block with the rules") unless block_given?
+    def scoring_rules
+      raise(ArgumentError, "You must supply a block with the rules") unless block_given?
       self.ruleset = Ruleset.new
       yield self.ruleset
     end

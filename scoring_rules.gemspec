@@ -1,18 +1,18 @@
 # -*- encoding: utf-8 -*-
 $:.push File.expand_path("../lib", __FILE__)
-require "scoring_ruleset/version"
+require "scoring_rules/version"
 
 Gem::Specification.new do |s|
-  s.name        = "scoring_ruleset"
-  s.version     = ScoringRuleset::VERSION
+  s.name        = "scoring_rules"
+  s.version     = ScoringRules::VERSION
   s.platform    = Gem::Platform::RUBY
   s.authors     = ["Lucas Húngaro"]
   s.email       = ["lucashungaro@gmail.com"]
-  s.homepage    = "http://rubygems.org/gems/scoring_ruleset"
-  s.summary     = %q{TODO: Write a gem summary}
-  s.description = %q{TODO: Write a gem description}
+  s.homepage    = "http://rubygems.org/gems/scoring_rules"
+  s.summary     = %q{A small library that provides a simple DSL for creating scoring rules (for rankings, rating and similar uses).}
+  s.description = %q{A small library that provides a simple DSL for creating scoring rules (for rankings, rating and similar uses).}
 
-  s.rubyforge_project = "scoring_ruleset"
+  s.rubyforge_project = "scoring_rules"
 
   s.files         = `git ls-files`.split("\n")
   s.test_files    = `git ls-files -- {test,spec,features}/*`.split("\n")

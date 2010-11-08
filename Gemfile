@@ -1,4 +1,4 @@
 source "http://rubygems.org"
 
-# Specify your gem's dependencies in ruleset.gemspec
+# Specify your gem's dependencies in scoring_rules.gemspec
 gemspec

@@ -1,3 +1,3 @@
-module ScoringRuleset
+module ScoringRules
   VERSION = "0.0.1"
 end

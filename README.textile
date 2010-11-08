@@ -1,8 +1,8 @@
-h1. scoring_ruleset
+h1. scoring_rules
 
 A small library that provides a simple DSL for creating scoring rules (for rankings, rating and similar uses).
 
-Does scoring_ruleset helps your daily work with Rails? So, "please recommend me":http://workingwithrails.com/recommendation/new/person/9370-lucas-h-ngaro on Working With Rails. Thanks for your kindness! :)
+Does scoring_rules helps your daily work with Rails? So, "please recommend me":http://workingwithrails.com/recommendation/new/person/9370-lucas-h-ngaro on Working With Rails. Thanks for your kindness! :)
 
 h2. Why?
 
@@ -13,7 +13,7 @@ h2. How?
 First, install the gem:
 
 <pre>
-$ [sudo] gem install scoring_ruleset
+$ [sudo] gem install scoring_rules
 </pre>
 
 Then, add it as a dependency in your code using your favorite way (a simple require or mechanisms like the Bundler gem).
@@ -22,9 +22,9 @@ The gem will provide you a module to mixin into your classes.
 
 <pre>
 class User
-  include ScoringRuleset
+  include ScoringRules
 
-  scoring_ruleset do |rule|
+  scoring_rules do |rule|
     rule.add_points    10, :if => lambda {self.age >= 18} # adds 10
     rule.remove_points  5, :if => :can_remove? # removes 5
     rule.add_points     5, :unless => lambda {self.is_new_user?} # does nothing

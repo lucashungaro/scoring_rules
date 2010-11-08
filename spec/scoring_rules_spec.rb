@@ -2,18 +2,18 @@ require File.expand_path(File.dirname(__FILE__) + '/spec_helper')
 require File.expand_path(File.dirname(__FILE__) + '/fixtures/my_model')
 require File.expand_path(File.dirname(__FILE__) + '/fixtures/rulesets')
 
-describe ScoringRuleset do
+describe ScoringRules do
   before(:each) do
-    MyModel.send(:include, ScoringRuleset)
+    MyModel.send(:include, ScoringRules)
   end
   
   after(:each) do
-    # reload the file to undefine the ruleset
+    # reload the file to undefine the rule set
     load File.expand_path(File.dirname(__FILE__) + '/fixtures/my_model.rb')    
   end
   
   context "contract" do   
-    specify "ruleset needs a block with its rules" do
+    specify "rule set needs a block with its rules" do
       doing {
         MyModel.class_eval {eval INVALID_RULESET_EMPTY}
       }.should raise_exception(ArgumentError)      
@@ -39,7 +39,7 @@ describe ScoringRuleset do
   end
   
   context "functionality" do
-    it "should correctly calculate the object score according to the ruleset" do
+    it "should correctly calculate the object score according to the rule set" do
       MyModel.class_eval {eval VALID_RULESET}
       obj = MyModel.new
       
