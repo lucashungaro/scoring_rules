@@ -1,5 +1,5 @@
 class MyModel
-  def follower
+  def followers
     r = OpenStruct.new
     r.count = 300
     r

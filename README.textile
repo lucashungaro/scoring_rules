@@ -1,0 +1,80 @@
+h1. scoring_ruleset
+
+A small library that provides a simple DSL for creating scoring rules (for rankings, rating and similar uses).
+
+Does scoring_ruleset helps your daily work with Rails? So, "please recommend me":http://workingwithrails.com/recommendation/new/person/9370-lucas-h-ngaro on Working With Rails. Thanks for your kindness! :)
+
+h2. Why?
+
+This kind of feature could by implemented without a DSL, but this really helps to build a transparent representation of business rules that is self-contained and easier to modify. Also, even if not a primary goal, this way of representation is easier for non-tech people to understand.
+
+h2. How?
+
+First, install the gem:
+
+<pre>
+$ [sudo] gem install scoring_ruleset
+</pre>
+
+Then, add it as a dependency in your code using your favorite way (a simple require or mechanisms like the Bundler gem).
+
+The gem will provide you a module to mixin into your classes.
+
+<pre>
+class User
+  include ScoringRuleset
+
+  scoring_ruleset do |rule|
+    rule.add_points    10, :if => lambda {self.age >= 18} # adds 10
+    rule.remove_points  5, :if => :can_remove? # removes 5
+    rule.add_points     5, :unless => lambda {self.is_new_user?} # does nothing
+    rule.add_points     1, :each => :followers # adds 300
+  end
+
+  def followers
+    r = OpenStruct.new
+    r.count = 300
+    r
+  end
+
+  def can_remove?
+    true
+  end
+
+  def age
+    20
+  end
+
+  def is_new_user?
+    true
+  end
+end
+</pre>
+
+Each rule requires one condition, expressed through :if, :unless or :each. For now you can't supply more than one condition per rule (it was a goal, but proved unnecessary).
+
+And to calculate the score, it's really simple:
+
+<pre>
+> user = User.get_me_some_user_from_somewhere
+> user.calculate_score
+=> 305
+</pre>
+
+h2. Note on Patches/Pull Requests
+
+* Fork the project.
+* Make your feature addition or bug fix.
+* Add tests for it. This is important so I don't break it in a
+  future version unintentionally.
+* Commit, do not mess with rakefile, version, or history.
+  (if you want to have your own version, that is fine but bump version in a commit by itself I can ignore when I pull)
+* Send me a pull request. Bonus points for topic branches.
+
+h2. Contributors
+
+Be a contributor! :)
+
+h3. Copyright
+
+Copyright (c) 2010 Lucas Húngaro. See LICENSE for details.

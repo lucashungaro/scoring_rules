@@ -3,12 +3,12 @@ class Ruleset
     @rules = []
   end
 
-  def add_points(criteria)
-    create_rule(criteria)
+  def add_points(points, criteria)
+    add_rule create_rule(points, criteria)
   end
 
-  def remove_points(criteria)
-    create_rule(criteria, :multiplier => -1)
+  def remove_points(points, criteria)
+    add_rule create_rule(points, criteria, :multiplier => -1)
   end
 
   def evaluate(instance)
@@ -18,13 +18,11 @@ class Ruleset
   end
 
   private
-    def create_rule(criteria, options = {})
+    def create_rule(points, criteria, options = {})
       options[:multiplier] = 1 unless options[:multiplier]
-      points = criteria.delete(:points) || 1
       validade_conditions(criteria)
       condition = build_condition_from_criteria(criteria)
       rule = Rule.new(points * options[:multiplier], condition)
-      add_rule(rule)
     end
 
     def build_condition_from_criteria(criteria)
