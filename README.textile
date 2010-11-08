@@ -53,6 +53,10 @@ end
 
 Each rule requires one condition, expressed through :if, :unless or :each. For now you can't supply more than one condition per rule (it was a goal, but proved unnecessary).
 
+For :if and :unless you simple need something that returns true or false (or anything that Ruby will understand as true or false). It can be a proc or method.
+
+For :each, you need to return a object that responds to _count_ (that's why I used the OpenStruct in the sample code above).
+
 And to calculate the score, it's really simple:
 
 <pre>
