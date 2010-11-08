@@ -32,9 +32,7 @@ class User
   end
 
   def followers
-    r = OpenStruct.new
-    r.count = 300
-    r
+    OpenStruct.new(:count => 300)
   end
 
   def can_remove?
