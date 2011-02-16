@@ -77,6 +77,8 @@ h2. Contributors
 
 Be a contributor! :)
 
-h3. Copyright
+h3. License
 
-Copyright (c) 2010 Lucas Húngaro. See LICENSE for details.
+h3. License
+
+scoring_rules is released under the MIT license. See "MIT LICENSE":https://github.com/lucashungaro/scoring_rules/blob/master/MIT-LICENSE.
