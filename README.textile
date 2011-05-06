@@ -6,7 +6,7 @@ Does scoring_rules helps your daily work with Rails? So, "please recommend me":h
 
 h2. Why?
 
-This kind of feature could by implemented without a DSL, but this really helps to build a transparent representation of business rules that is self-contained and easier to modify. Also, even if not a primary goal, this way of representation is easier for non-tech people to understand.
+This kind of feature could be implemented without a DSL, but this really helps to build a transparent representation of business rules that is self-contained and easier to modify. Also, even if not a primary goal, this way of representation is easier for non-tech people to understand.
 
 h2. How?
 
